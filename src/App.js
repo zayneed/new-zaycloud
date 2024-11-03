@@ -1,16 +1,18 @@
 // src/App.js
 import React from 'react';
 import AboutMe from './components/AboutMe';
-import Projects from './components/Projects'; // Importiere die Projects-Komponente
-import './App.css'; 
+import Projects from './components/Projects';
+import './App.css';
 
 function App() {
   return (
-    <div className="bg-[#1D2433]">
-      <div className="h-screen flex flex-col items-center justify-center overflow-hidden">
+    <div className="bg-[#1D2433] h-screen snap-y snap-mandatory overflow-y-scroll">
+      <div className="snap-start flex flex-col items-center justify-center h-screen">
         <AboutMe />
       </div>
-      <Projects /> {/* Füge die Projects-Komponente hinzu */}
+      <div className="snap-start flex flex-col items-center justify-center h-screen">
+        <Projects />
+      </div>
     </div>
   );
 }

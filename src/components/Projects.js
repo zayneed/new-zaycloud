@@ -1,22 +1,32 @@
 // src/components/Projects.js
 
 import React from 'react';
+import screenshot1 from '../sitescreens/1.png'; // Screenshot 1
+import screenshot2 from '../sitescreens/2.png'; // Screenshot 2
+import screenshot3 from '../sitescreens/3.png'; // Screenshot 3
+
 
 const projects = [
   {
-    title: "Project One",
+    title: "Zayneed Cloud",
+    image: screenshot1, // Screenshot 1
+    url: "https://zayneed.cloud",
     date: "January 1, 2023",
     description: "This is a brief description of Project One.",
     technologies: ["React", "Tailwind CSS"]
   },
   {
-    title: "Project Two",
+    title: "Outrobot",
+    image: screenshot2, // Screenshot 1
+    url: "https://bot.zayneed.cloud",
     date: "February 15, 2023",
     description: "This is a brief description of Project Two.",
     technologies: ["Next.js", "Node.js"]
   },
   {
-    title: "Project Three",
+    title: "Coctube",
+    image: screenshot3, // Screenshot 1
+    url: "https://coctube.com",
     date: "March 30, 2023",
     description: "This is a brief description of Project Three.",
     technologies: ["Django", "Python"]
@@ -42,6 +52,15 @@ function Projects() {
               </button>
             ) : (
               <>
+                {/* Bild als img-Tag verwenden */}
+                {project.image && (
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    className="w-full h-auto rounded-lg mb-2" // Stil anpassen
+                    style={{ height: '200px', objectFit: 'cover' }} // Skaliere das Bild
+                  />
+                )}
                 <h3 className="font-bold text-white">{project.title}</h3>
                 <p className="text-[#9CA3AF] italic">{project.date}</p>
                 <p className="mt-2 text-white">{project.description}</p>
