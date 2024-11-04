@@ -37,6 +37,69 @@
   }
 }
 
+/* Smooth scrolling für die gesamte Seite */
 html {
   scroll-behavior: smooth;
+}
+
+/* Scrollleiste für Webkit-Browser (Chrome, Safari) */
+::-webkit-scrollbar {
+  width: 8px; /* Standardbreite der Scrollleiste */
+}
+
+::-webkit-scrollbar-track {
+  background: #1D2433; /* Hintergrund der Scrollleiste */
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #3A4750; /* Standardfarbe des Scrollthumbs */
+  border-radius: 10px; /* Runde Ecken */
+  border: 2px solid #1D2433;
+  transition: all 0.4s ease; /* Sanfter Übergang für Hover- und Größenänderungen */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #556678; /* Hover-Farbe des Scrollthumbs */
+  width: 12px; /* Vergrößert den Thumb leicht beim Hover */
+  border-radius: 12px; /* Runde Ecken beim Hover für einen smoothen Look */
+}
+
+/* Für Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #3A4750 #1D2433;
+}
+
+.github-stats-container {
+  display: flex;
+  justify-content: space-around;
+  margin: 40px 0;
+}
+
+.stat-card {
+  padding: 20px;
+  background: linear-gradient(135deg, #4e54c8, #8f94fb);
+  color: #fff;
+  border-radius: 15px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+  width: 200px; /* Set a fixed width */
+}
+
+.stat-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+}
+
+.stat-title {
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+.stat-value {
+  font-size: 2.5em;
+  margin-top: 10px;
+  color: #ffd700; /* Gold color */
 }
