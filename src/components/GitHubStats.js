@@ -3,45 +3,48 @@ import React, { useEffect, useState } from 'react';
 
 const GitHubStats = () => {
   const [followers, setFollowers] = useState(0);
-  const [totalCommits, setTotalCommits] = useState(0);
+  const [totalStars, setTotalStars] = useState(0);
+  const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
     // Follower abrufen
     fetch('https://api.github.com/users/zayneed')
-      .then(response => response.json())
-      .then(data => setFollowers(data.followers))
-      .catch(error => console.error("Fehler beim Abrufen der Follower:", error));
+      .then((response) => response.json())
+      .then((data) => setFollowers(data.followers))
+      .catch((error) => console.error("Fehler beim Abrufen der Follower:", error));
 
-    // Commits aus allen Repositories abrufen
+    // Alle Repositories abrufen und Sterne summieren
     fetch('https://api.github.com/users/zayneed/repos')
-      .then(response => response.json())
-      .then(repos => {
-        const commitRequests = repos.map(repo => 
-          fetch(`https://api.github.com/repos/zayneed/${repo.name}/stats/commit_activity`)
-            .then(response => response.json())
-            .then(data => data.reduce((sum, week) => sum + week.total, 0))
-        );
+      .then((response) => response.json())
+      .then((repos) => {
+        const stars = repos.reduce((acc, repo) => acc + repo.stargazers_count, 0);
+        setTotalStars(stars);
+      })
+      .catch((error) => console.error("Fehler beim Abrufen der Repositories:", error));
 
-        Promise.all(commitRequests)
-          .then(commitCounts => {
-            const allCommits = commitCounts.reduce((acc, count) => acc + count, 0);
-            setTotalCommits(allCommits);
-          })
-          .catch(error => console.error("Fehler beim Abrufen der Commits:", error));
-      });
+    // Startet die Animation nach einer kurzen Verzögerung
+    setTimeout(() => setIsVisible(true), 300);
   }, []);
 
   return (
     <div className="p-6 bg-[#1D2433] text-white flex flex-col items-center mt-8 space-y-4">
-      <h2 className="text-2xl font-semibold mb-4">GitHub Stats</h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <div className="p-4 bg-[#2F3A4F] text-center rounded-lg shadow-md transition-transform transform hover:scale-105">
+      <h2 className="text-3xl font-semibold mb-6">GitHub Stats</h2>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div
+          className={`p-6 bg-gradient-to-r from-[#2F3A4F] to-[#3C4B5A] text-center rounded-lg shadow-xl transition-transform duration-500 hover:scale-105 transform ${
+            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+          }`}
+        >
           <h3 className="text-xl font-bold">Follower</h3>
-          <p className="text-3xl font-semibold text-yellow-300">{followers}</p>
+          <p className="text-4xl font-semibold text-yellow-300">{followers}</p>
         </div>
-        <div className="p-4 bg-[#2F3A4F] text-center rounded-lg shadow-md transition-transform transform hover:scale-105">
-          <h3 className="text-xl font-bold">Commits</h3>
-          <p className="text-3xl font-semibold text-yellow-300">{totalCommits}</p>
+        <div
+          className={`p-6 bg-gradient-to-r from-[#2F3A4F] to-[#3C4B5A] text-center rounded-lg shadow-xl transition-transform duration-500 hover:scale-105 transform delay-200 ${
+            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+          }`}
+        >
+          <h3 className="text-xl font-bold">Total Stars</h3>
+          <p className="text-4xl font-semibold text-yellow-300">{totalStars}</p>
         </div>
       </div>
     </div>
