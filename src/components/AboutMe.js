@@ -37,13 +37,21 @@ const AboutMe = () => {
           <h2 className={`font-semibold ${isMaximized ? 'text-2xl' : 'text-xl'}`}>
             Hi, I'm <span className="font-bold text-yellow-300">Zayneed</span>
           </h2>
-          <p className="mt-2">
-            Hi, my name is <span className="font-bold text-yellow-300">Zayneed</span> and I love <span className="font-bold text-yellow-300">programming</span> and <span className="font-bold text-yellow-300">designing</span> things.
-            I started enjoying tech very soon; when I was <span className="font-bold text-yellow-300">9 years</span> old, I did my first projects in Scratch.
-            From then on, I gained knowledge in various things.
-            I really love <span className="font-bold text-yellow-300">programming</span> and I wanna learn and get better every day.
-            Tech fascinates me and always will.
-          </p>
+          {isMaximized ? (
+            <p className="mt-2">
+              Expanding my skills, I’m now delving deeper into advanced topics and broadening my expertise in tech.
+              I find joy in building full-stack applications, experimenting with new technologies, and collaborating with others in the tech community.
+              My journey is one of continuous learning, and I’m excited to see where it leads.
+            </p>
+          ) : (
+            <p className="mt-2">
+              Hi, my name is <span className="font-bold text-yellow-300">Zayneed</span> and I love <span className="font-bold text-yellow-300">programming</span> and <span className="font-bold text-yellow-300">designing</span> things.
+              I started enjoying tech very soon; when I was <span className="font-bold text-yellow-300">9 years</span> old, I did my first projects in Scratch.
+              From then on, I gained knowledge in various things.
+              I really love <span className="font-bold text-yellow-300">programming</span> and I wanna learn and get better every day.
+              Tech fascinates me and always will.
+            </p>
+          )}
           <p className="mt-2">
             This is just the start of my <span className="font-bold text-yellow-300">journey</span>.
           </p>
