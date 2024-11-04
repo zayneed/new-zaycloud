@@ -2,6 +2,7 @@
 import React from 'react';
 import AboutMe from './components/AboutMe';
 import Projects from './components/Projects';
+import GitHubStats from './components/GitHubStats';
 import './App.css';
 
 function App() {
@@ -12,6 +13,9 @@ function App() {
       </div>
       <div className="snap-start flex flex-col items-center justify-center h-screen">
         <Projects />
+      </div>
+      <div className="snap-start flex flex-col items-center justify-center h-screen">
+        <GitHubStats />
       </div>
     </div>
   );
