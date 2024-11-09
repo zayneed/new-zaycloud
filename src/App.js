@@ -58,7 +58,7 @@ function App() {
         <Projects />
       </div>
       <div id="stats" className="snap-start flex flex-col items-center justify-center h-screen">
-        <GitHubStats />
+      <GitHubStats username="zayneed" token="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_567890abcdef1234567890abcdef12345678"/>
       </div>
       <NavBar />
     </div>
