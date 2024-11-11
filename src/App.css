@@ -149,3 +149,71 @@ body {
   box-shadow: 0px 3px 20px rgba(0, 0, 0, 0.5);
   border-radius: 25px;
 }
+
+.bg-[#1D2433] {
+  background-color: #1D2433; /* Dunkler Hintergrund für den Dark Mode */
+}
+
+.text-white {
+  color: white; /* Weißer Text für Dark Mode */
+}
+
+button {
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+button:hover {
+  transform: scale(1.05);
+}
+
+textarea {
+  background-color: #282c34; /* Dark Background für das Textfeld */
+  color: white; /* Weißer Text im Textfeld */
+  border: 1px solid #3a4750; /* Border für das Textfeld im Dark Mode */
+}
+
+textarea:focus {
+  border-color: #6a80ff; /* Fokusborder in blauer Farbe */
+}
+
+button:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(0, 0, 255, 0.5);
+}
+
+/* Für die Übergänge und Animation */
+.motion-div {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+
+/* Standardfarbe */
+.menu-bar .sparkle-icon a {
+  transition: all 0.3s ease;
+}
+
+/* Gelbe Farbe beim Hover über das Sparkles-Symbol */
+.menu-bar .sparkle-icon a:hover {
+  color: yellow;  /* Gelb beim Hover */
+}
+
+.menu-bar a:hover {
+  color: black;
+  background: linear-gradient(to bottom, #e8edec, #d2d1d3);
+  box-shadow: 0px 3px 20px rgba(0, 0, 0, 0.5);
+  border-radius: 25px;
+}
+
+/* Optional: Für einen Smooth-Scale-Effekt */
+.menu-bar .sparkle-icon a:hover {
+  transform: scale(1.2);
+}
