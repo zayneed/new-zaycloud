@@ -8,28 +8,28 @@ import screenshot3 from '../sitescreens/3.png'; // Screenshot 3
 
 const projects = [
   {
-    title: "Zayneed Cloud",
+    title: "Zayneed.Cloud",
     image: screenshot1, // Screenshot 1
     url: "https://zayneed.cloud",
-    date: "January 1, 2023",
-    description: "This is a brief description of Project One.",
+    date: "December 03, 2024",
+    description: "This is my personal site",
     technologies: ["React", "Tailwind CSS"]
   },
   {
     title: "Outrobot",
     image: screenshot2, // Screenshot 1
     url: "https://bot.zayneed.cloud",
-    date: "February 15, 2023",
-    description: "This is a brief description of Project Two.",
-    technologies: ["Next.js", "Node.js"]
+    date: "September 02, 2024",
+    description: "My Discord bot (outdated)",
+    technologies: ["Next.js", "Node.js", "discord.js", "ffmpeg"]
   },
   {
-    title: "Coctube",
+    title: "Vine Boomer",
     image: screenshot3, // Screenshot 1
-    url: "https://coctube.com",
-    date: "March 30, 2023",
-    description: "This is a brief description of Project Three.",
-    technologies: ["Django", "Python"]
+    url: "https://vine-boomer.zayneed.cloud",
+    date: "December 03, 2024",
+    description: "My newest project with SiliconValley77, Vine Boomer!",
+    technologies: ["Tauri", "Rust", "Next.js", "TailwindCSS"]
   },
   {
     title: "View More Projects",
